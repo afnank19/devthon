@@ -6,7 +6,7 @@ const HomePage = () => {
       </h1>
       <p>
         An opinionated way to get started with a fullstack react + express
-        project, complete with all the best libraries, so prototyping becomes
+        project, complete with all the best libraries, so prototyping becomes.
         easy
       </p>
     </div>
