@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
+
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
+import { Link } from 'react-router-dom';
+import UserHeader from "../../components/UserHeader";
 
 export default function UserHomePage() {
   const [availableCourses, setAvailableCourses] = useState([]);
@@ -97,8 +101,9 @@ export default function UserHomePage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-700 text-white p-6 transition-all duration-500 ease-in-out">
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-700 text-white  transition-all duration-500 ease-in-out">
       {/* Header */}
+      <UserHeader />
       <h1 className="text-5xl font-bold text-center mb-12 animate__animated animate__fadeIn">
         Welcome to Your Course Dashboard
       </h1>

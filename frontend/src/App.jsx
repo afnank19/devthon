@@ -9,6 +9,13 @@ import Course from "./pages/User/Course";
 import Certificate from "./pages/User/Certificate";
 import UserHomePage from "./pages/User/UserHomePage";
 // import AIVocal from "./pages/AIVocal";
+import InstrProfile from "./pages/Instructor/InstrProfile";
+import CreateCourse from "./pages/Instructor/CreateCourse";
+import AddLesson from "./pages/Instructor/AddLesson";
+import CoursePage from "./pages//Instructor/CoursePage";
+import EditCourse from "./pages/Instructor/EditCourse";
+import AIVocal from "./pages/AIVocal";
+import InstructorFeedback from "./pages/Instructor/InstructorFeedback";
 
 
 function App() {
@@ -25,9 +32,15 @@ function App() {
         <Route path="/certificate" element={<Certificate />} />
         <Route path="/userHomePage" element={<UserHomePage />} />
         {/* Instructor */}
+        <Route path="/instructorProfile" element={<InstrProfile />} />
+        <Route path="/createCourse" element={<CreateCourse />} />
+        <Route path="/addLesson" element={<AddLesson />} />
+        <Route path="/coursePage" element={<CoursePage />} />
+        <Route path="/editCourse" element={<EditCourse />} />
+        <Route path="/instructorFeedback" element={<InstructorFeedback />} />
 
         {/* Misc */}
-        {/* <Route path="/aiVocal" element={<AIVocal />} /> */}
+        <Route path="/aiVocal" element={<AIVocal />} />
         
       </Routes>
     </>
