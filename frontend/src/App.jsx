@@ -15,6 +15,7 @@ import AddLesson from "./pages/Instructor/AddLesson";
 import CoursePage from "./pages//Instructor/CoursePage";
 import EditCourse from "./pages/Instructor/EditCourse";
 import AIVocal from "./pages/AIVocal";
+import InstructorFeedback from "./pages/Instructor/InstructorFeedback";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Route path="/addLesson" element={<AddLesson />} />
         <Route path="/coursePage" element={<CoursePage />} />
         <Route path="/editCourse" element={<EditCourse />} />
+        <Route path="/instructorFeedback" element={<InstructorFeedback />} />
 
         {/* Misc */}
         <Route path="/aiVocal" element={<AIVocal />} />

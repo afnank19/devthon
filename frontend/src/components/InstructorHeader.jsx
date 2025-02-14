@@ -34,6 +34,12 @@ export default function InstructorHeader() {
           >
             Edit Course
           </Link>
+          <Link
+            to="/instructorFeedback" // Edit Course Link
+            className="text-white text-lg hover:text-blue-400 transition duration-200"
+          >
+            Feedback
+          </Link>
         </nav>
       </div>
     </header>
