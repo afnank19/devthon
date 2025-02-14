@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-import { Link } from 'react-router-dom';
-import UserHeader from "../../components/UserHeader";
+// import { Link } from 'react-router-dom';
+import UserHeader from '../../components/UserHeader';
 
 export default function UserHomePage() {
   const [availableCourses, setAvailableCourses] = useState([]);
