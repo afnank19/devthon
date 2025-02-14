@@ -1,11 +1,9 @@
 import sessionRoutes from "../api/routes/sessionRoutes.js";
+import userRoutes from "../api/routes/userRoutes.js";
 
 function loadRoutes(app) {
-  app.use("/", (req, res) => {
-    res.send("Server is up and alive.");
-  });
-
-  app.use("/", sessionRoutes);
+  app.use("/auth", sessionRoutes);
+  app.use("/users", userRoutes);
 }
 
 export default loadRoutes;
