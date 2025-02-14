@@ -1,4 +1,4 @@
-import { adm } from "../../config/firebase.js";
+import { adm, db } from "../../config/firebase.js";
 
 export async function createEnrollment(userId, courseId) {
   const enrollmentData = {
@@ -9,7 +9,9 @@ export async function createEnrollment(userId, courseId) {
 
   try {
     const docRef = await db.collection("enrollments").add(enrollmentData);
-    return docRef.id;
+    const user= await db.collection("users").doc(userId).get();
+    const email = user.data().email;
+    return [docRef.id,email];
   } catch (error) {
     throw new Error(`Error adding enrollment: ${error.message}`);
   }
