@@ -11,4 +11,8 @@ router.route("/:id/enrollments").get(enrollController.getUserEnrollments);
 router
   .route("/:id/submissions")
   .get(subController.getSubmissionsByUserIdController);
+
+router
+  .route("/submission")
+  .get(subController.addSubmissionController);
 export default router;
