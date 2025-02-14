@@ -1,22 +1,49 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
+import axios from 'axios';
 
 export default function Signup() {
-  const [cmsId, setCmsId] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [cmsId, setCmsId] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [role, setRole] = useState("user");
-  const [error, setError] = useState("");
+  const [role, setRole] = useState('user');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const signup = async () => {
     if (password !== confirmPassword) {
-      setError("Passwords do not match!");
+      setError('Passwords do not match!');
       return;
     }
+
     // Signup logic here
+    // e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await axios.post('http://localhost:3000/users', {
+        name: cmsId,
+        email,
+        password,
+        role
+      });
+      console.log('Signup successful:', response.data);
+      // Optionally, you can store data or redirect after signup
+    } catch (err) {
+      console.error('Signup failed:', err);
+      setError(err.response?.data?.message || err.message);
+    } finally {
+      setLoading(false);
+      if (role === 'user') {
+        navigate('/userHomePage');
+      } else {
+        navigate('/userHomePage');
+      }
+    }
   };
 
   return (
@@ -33,8 +60,11 @@ export default function Signup() {
             }}
           >
             <div className="mb-4">
-              <label htmlFor="cmsId" className="block text-gray-300 font-bold mb-2">
-                CMS ID
+              <label
+                htmlFor="cmsId"
+                className="block text-gray-300 font-bold mb-2"
+              >
+                Name
               </label>
               <input
                 type="text"
@@ -42,11 +72,14 @@ export default function Signup() {
                 value={cmsId}
                 onChange={(e) => setCmsId(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-500 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
-                placeholder="Enter your CMS ID"
+                placeholder="Enter your name"
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="email" className="block text-gray-300 font-bold mb-2">
+              <label
+                htmlFor="email"
+                className="block text-gray-300 font-bold mb-2"
+              >
                 Email
               </label>
               <input
@@ -59,7 +92,10 @@ export default function Signup() {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="role" className="block text-gray-300 font-bold mb-2">
+              <label
+                htmlFor="role"
+                className="block text-gray-300 font-bold mb-2"
+              >
                 Role
               </label>
               <select
@@ -68,16 +104,19 @@ export default function Signup() {
                 onChange={(e) => setRole(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-500 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
               >
-                <option value="admin">Admin</option>
+                <option value="instructor">Instructor</option>
                 <option value="user">User</option>
               </select>
             </div>
             <div className="mb-4 relative">
-              <label htmlFor="password" className="block text-gray-300 font-bold mb-2">
+              <label
+                htmlFor="password"
+                className="block text-gray-300 font-bold mb-2"
+              >
                 Password
               </label>
               <input
-                type={passwordVisible ? "text" : "password"}
+                type={passwordVisible ? 'text' : 'password'}
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -86,7 +125,10 @@ export default function Signup() {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="confirmPassword" className="block text-gray-300 font-bold mb-2">
+              <label
+                htmlFor="confirmPassword"
+                className="block text-gray-300 font-bold mb-2"
+              >
                 Confirm Password
               </label>
               <input
@@ -102,7 +144,6 @@ export default function Signup() {
             <button
               type="submit"
               className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-              onClick={() => navigate('/userProfile')} 
             >
               Sign Up
             </button>

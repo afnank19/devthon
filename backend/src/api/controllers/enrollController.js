@@ -2,7 +2,7 @@ import {
   createEnrollment,
   getEnrollmentsByUserId,
   updateEnrollmentProgress,
-} from "../services/enrollService";
+} from "../services/enrollService.js";
 
 export const addNewEnrollment = async (req, res, next) => {
   try {
