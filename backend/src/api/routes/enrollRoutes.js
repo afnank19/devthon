@@ -3,6 +3,6 @@ import * as enrollController from "../controllers/enrollController.js";
 
 const router = Router();
 
-router.route("/");
+router.route("/").post(enrollController.addNewEnrollment);
 
 export default router;
