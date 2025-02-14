@@ -36,6 +36,16 @@ const navigate = useNavigate();
             <p className='mt-4 text-lg sm:text-xl lg:text-2xl max-w-2xl mx-auto text-gray-300'>
                 New Here? Sign Up to get started
             </p>
+            <button 
+              onClick={() => navigate('/instructorProfile')} 
+              className='mt-8 bg-blue-600 text-white px-8 py-3 rounded-full hover:font-semibold transition-all transform hover:scale-105 shadow-lg'>
+              Instructor Profile
+            </button>
+            <button 
+              onClick={() => navigate('/userProfile')} 
+              className='mt-8 bg-blue-600 text-white px-8 py-3 rounded-full hover:font-semibold transition-all transform hover:scale-105 shadow-lg'>
+              User Profile
+            </button>
           </main>
     
           <div className='flex flex-col justify-center items-center text-center px-5 sm:px-10 pb-12'>
