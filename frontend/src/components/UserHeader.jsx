@@ -29,6 +29,12 @@ export default function Header() {
           >
             Certificate
           </Link>
+          <Link
+            to="/aiVocal" // Certificate Link
+            className="text-white text-lg hover:text-blue-400 transition duration-200"
+          >
+            AI Vocals
+          </Link>
         </nav>
       </div>
     </header>

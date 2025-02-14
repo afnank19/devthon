@@ -10,11 +10,11 @@ import Certificate from "./pages/User/Certificate";
 import UserHomePage from "./pages/User/UserHomePage";
 // import AIVocal from "./pages/AIVocal";
 import InstrProfile from "./pages/Instructor/InstrProfile";
-import Error from "./pages/Error";
 import CreateCourse from "./pages/Instructor/CreateCourse";
 import AddLesson from "./pages/Instructor/AddLesson";
 import CoursePage from "./pages//Instructor/CoursePage";
 import EditCourse from "./pages/Instructor/EditCourse";
+import AIVocal from "./pages/AIVocal";
 
 
 function App() {
@@ -36,9 +36,9 @@ function App() {
         <Route path="/addLesson" element={<AddLesson />} />
         <Route path="/coursePage" element={<CoursePage />} />
         <Route path="/editCourse" element={<EditCourse />} />
-        
+
         {/* Misc */}
-        {/* <Route path="/aiVocal" element={<AIVocal />} /> */}
+        <Route path="/aiVocal" element={<AIVocal />} />
         
       </Routes>
     </>
