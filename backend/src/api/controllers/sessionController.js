@@ -47,5 +47,8 @@ export const loginUser = async (req, res, next) => {
     };
 
     res.status(200).json(result);
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: "wo0ghoo" });
+  }
 };
