@@ -1,7 +1,8 @@
 import { Router } from "express";
+import * as sessionController from "../controllers/sessionController.js";
 
 const router = Router();
 
-router.route("/").get().post();
+router.route("/").post(sessionController.loginUser);
 
 export default router;

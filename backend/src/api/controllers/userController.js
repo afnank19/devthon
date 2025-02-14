@@ -1,4 +1,5 @@
 import { generateHash } from "@afnank19/express-auth-helper";
+import { addUser } from "../services/userService.js";
 
 export const registerUser = async (req, res, next) => {
   try {
@@ -14,6 +15,11 @@ export const registerUser = async (req, res, next) => {
     };
 
     // Add this user to the db
+    const newUserId = await addUser(newUser);
+
+    if (newUserId === null) {
+      res.status(500).json({ msg: "an error occured" });
+    }
 
     res.status(200).json({ msg: "creation success" });
   } catch (error) {

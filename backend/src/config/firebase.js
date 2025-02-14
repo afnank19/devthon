@@ -27,7 +27,7 @@ const {
 //   universe_domain: "googleapis.com",
 // };
 
-import svcAcc from "../secrets/devthon-b677d-firebase-adminsdk-fbsvc-98e5140c64.json" assert { type: "json" };
+import svcAcc from "../secrets/devthon-b677d-firebase-adminsdk-fbsvc-98e5140c64.json" with { type: "json" };
 
 admin.initializeApp({
   credential: admin.credential.cert(svcAcc),
