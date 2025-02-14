@@ -2,6 +2,7 @@ import {
   createAndSignTokens,
   verifyPassword,
 } from "@afnank19/express-auth-helper";
+import { getUserDetailsByEmail } from "../services/userService.js";
 
 export const loginUser = async (req, res, next) => {
   try {
@@ -12,8 +13,9 @@ export const loginUser = async (req, res, next) => {
     }
 
     // fetch user hash from unique email
+    const user = await getUserDetailsByEmail(email);
 
-    const isMatch = await verifyPassword(password, hash); // hash returend by service
+    const isMatch = await verifyPassword(password, user.hash); // hash returend by service
 
     if (!isMatch) {
       res.status(400).json({ msg: "error: check email or password" });
@@ -25,9 +27,9 @@ export const loginUser = async (req, res, next) => {
     };
 
     const payload = {
-      name: "test-user",
-      role: "instructor",
-      id: "0123456",
+      name: user.name,
+      role: user.role,
+      id: user.id,
     };
 
     const creds = {
@@ -39,6 +41,7 @@ export const loginUser = async (req, res, next) => {
 
     const result = {
       id: payload.id,
+      role: user.role,
       aTkn: tokens.aToken,
       rTkn: tokens.rToken,
     };
