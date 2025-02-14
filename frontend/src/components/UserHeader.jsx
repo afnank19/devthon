@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Header() {
-
   return (
     <header className="bg-gray-800 p-4 w-full mb-4">
       <div className="flex justify-between items-center max-w-7xl mx-auto">
         {/* Logo or App Name */}
-        <h1 className="text-white text-2xl font-semibold">Vocal Training App</h1>
+        <h1 className="text-white text-2xl font-semibold">
+          Vocal Training App
+        </h1>
 
         {/* Navigation Links */}
         <nav className="flex space-x-6">
